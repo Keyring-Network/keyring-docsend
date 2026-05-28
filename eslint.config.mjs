@@ -79,6 +79,8 @@ export default tseslint.config(
       "max-lines-per-function": "off",
       "max-nested-callbacks": "off",
       "sonarjs/no-duplicate-string": "off",
+      // Tests use throwaway fake SMTP creds.
+      "sonarjs/no-hardcoded-passwords": "off",
     },
   },
 );
