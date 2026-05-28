@@ -9,6 +9,7 @@ tsconfig.tsbuildinfo
 
 # Local data store (json-file storage driver)
 .data
+.tmp-test
 
 # Env
 .env
