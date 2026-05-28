@@ -1,0 +1,30 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Next.js
+.next
+out
+tsconfig.tsbuildinfo
+
+# Local data store (json-file storage driver)
+.data
+
+# Env
+.env
+.env.local
+.env*.local
+
+# User-supplied content (keep the sample, ignore real decks)
+/content/*
+!/content/README.md
+!/content/sample/
+
+# OS / editor
+.DS_Store
+*.log
+.vscode
+.idea
+
+# Vercel
+.vercel
