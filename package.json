@@ -19,7 +19,7 @@
     "dupes": "jscpd",
     "verify": "pnpm typecheck && pnpm lint && pnpm dupes && pnpm test:coverage",
     "setup": "node scripts/setup.mjs",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

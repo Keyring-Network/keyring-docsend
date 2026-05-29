@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+coverage
+.data
+.git
+.github
+*.test.ts
+.env
+.env.local
+.env*.local
+.husky
