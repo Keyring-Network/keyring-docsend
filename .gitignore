@@ -16,10 +16,9 @@ tsconfig.tsbuildinfo
 .env.local
 .env*.local
 
-# User-supplied content (keep the sample, ignore real decks)
-/content/*
-!/content/README.md
-!/content/sample/
+# Your document lives in public/content/. The sample is committed so the app
+# runs out of the box; replace it with your own (and gitignore it there if you
+# don't want your deck in version control).
 
 # OS / editor
 .DS_Store

@@ -46,3 +46,16 @@ export function maskEmail(email: string): string {
   if (!local || !domain) return "***";
   return `${local.slice(0, 2)}***@${domain}`;
 }
+
+/**
+ * A pragmatic, ReDoS-safe email check (exactly one @, non-empty local, a
+ * dotted domain, no whitespace). Not full RFC 5322 — just enough to reject
+ * obvious non-emails before we try to send one.
+ */
+export function isLikelyEmail(value: string): boolean {
+  if (/\s/.test(value)) return false;
+  const at = value.indexOf("@");
+  if (at <= 0 || at !== value.lastIndexOf("@")) return false;
+  const domain = value.slice(at + 1);
+  return domain.length > 2 && domain.includes(".") && !domain.endsWith(".");
+}

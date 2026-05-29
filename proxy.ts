@@ -1,11 +1,8 @@
 import NextAuth from "next-auth";
 import { authConfig } from "@/auth.config";
 
-// The gate runs on every request. It needs the access store (which, for the
-// default JSON driver, touches the filesystem), so it runs in the Node.js
-// runtime rather than the Edge runtime.
-export const runtime = "nodejs";
-
+// Next runs proxy.ts on the Node.js runtime, so the gate can use the access
+// store directly (the default JSON driver touches the filesystem).
 export default NextAuth(authConfig).auth;
 
 export const config = {

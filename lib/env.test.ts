@@ -1,5 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { hasEnv, maskEmail, optionalEnv, parseEmailList, requiredEnv } from "./env";
+import {
+  hasEnv,
+  isLikelyEmail,
+  maskEmail,
+  optionalEnv,
+  parseEmailList,
+  requiredEnv,
+} from "./env";
 
 const KEY = "KEYRING_DOCSEND_TEST_VAR";
 const KEY2 = "KEYRING_DOCSEND_TEST_VAR_2";
@@ -87,5 +94,19 @@ describe("maskEmail", () => {
 
   it("returns *** for a malformed value", () => {
     expect(maskEmail("not-an-email")).toBe("***");
+  });
+});
+
+describe("isLikelyEmail", () => {
+  it("accepts a normal email", () => {
+    expect(isLikelyEmail("a@example.com")).toBe(true);
+  });
+
+  it("rejects whitespace, missing/duplicate @, and bad domains", () => {
+    expect(isLikelyEmail("a b@example.com")).toBe(false);
+    expect(isLikelyEmail("@example.com")).toBe(false);
+    expect(isLikelyEmail("a@b@example.com")).toBe(false);
+    expect(isLikelyEmail("a@localhost")).toBe(false);
+    expect(isLikelyEmail("a@example.")).toBe(false);
   });
 });
