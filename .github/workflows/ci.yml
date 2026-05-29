@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm version comes from package.json "packageManager"; don't also
+      # set it here or action-setup errors on the duplicate.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # typecheck + lint + jscpd + 100% coverage
+      - run: pnpm verify
+
+      - name: Build
+        run: pnpm build
+        env:
+          AUTH_SECRET: ci-build-secret-placeholder-value
+          ADMIN_EMAILS: ci@example.com

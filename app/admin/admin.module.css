@@ -1,0 +1,118 @@
+.page {
+  min-height: 100vh;
+  padding: 48px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin: 8px 0 32px;
+  opacity: 0.6;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sectionTitle {
+  margin: 32px 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.empty {
+  padding: 18px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+.tableWrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: left;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  border-bottom: 1px solid var(--border);
+}
+
+.table td {
+  padding: 10px 14px;
+  vertical-align: middle;
+  border-top: 1px solid rgba(246, 244, 239, 0.08);
+  overflow-wrap: anywhere;
+}
+
+.table tbody tr:first-child td {
+  border-top: 0;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 24px 16px;
+  }
+  .tableWrap {
+    border: 0;
+  }
+  .table,
+  .table thead,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .table thead {
+    position: absolute;
+    left: -9999px;
+  }
+  .table tr {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 6px 4px;
+  }
+  .table td {
+    border-top: 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .table td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-weight: 600;
+    min-width: 78px;
+  }
+  .table td[data-label=""]::before {
+    display: none;
+  }
+}
