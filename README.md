@@ -14,6 +14,16 @@ a polite "request access" button.
 - **No required cloud services** — with no mailer configured, magic links print
   to the server console, so it works the moment you clone it.
 
+## Contents
+
+- [Quick start](#quick-start)
+- [For agents](#for-agents)
+- [Configure](#configure)
+- [How access works](#how-access-works)
+- [Deploy](#deploy)
+- [Quality bar](#quality-bar)
+- [License](#license)
+
 ## Quick start
 
 ```bash
@@ -26,6 +36,44 @@ pnpm dev            # http://localhost:3000
 Sign in with your admin email via the magic-link form. With no mailer set up,
 the link is printed to the terminal running `pnpm dev` — paste it into your
 browser. You're in; the sample document is at `/deck`.
+
+## For agents
+
+A speed-run for a coding agent. Read [AGENTS.md](./AGENTS.md) first — it has
+the rules that will save you a wasted round trip.
+
+**Get it running (no accounts, no secrets):**
+
+```bash
+pnpm install
+printf 'AUTH_SECRET=%s\nADMIN_EMAILS=you@example.com\n' "$(openssl rand -base64 32)" > .env.local
+pnpm dev
+```
+
+Then `POST` nothing — just open `/`, enter `you@example.com`, and read the
+magic link from the dev server's stdout (`[mailer:console] …`). That admin
+session reaches `/deck` and `/admin`.
+
+**The map:**
+
+- `lib/` — all the logic, each module pure and 100% covered. Start here.
+  - `store/` — `getStore()` picks json / edge-config / redis; transitions in `state.ts`.
+  - `mailer/` — templates + transports (`selectTransport()`).
+  - `access.ts`, `access-flow.ts`, `tokens.ts`, `providers.ts`, `routes.ts`, `signin-policy.ts`.
+- `app/` — thin glue only (pages, route handlers, server actions). No logic here.
+- `auth.ts` / `auth.config.ts` / `proxy.ts` — NextAuth wiring + the gate.
+- `siteConfig.ts` — branding + which document to serve.
+
+**Before you commit, this must pass (the hooks enforce it):**
+
+```bash
+pnpm verify   # typecheck + lint + jscpd (0% dupes) + 100% lib coverage
+```
+
+**Non-negotiables** (full list in AGENTS.md): new logic lands in `lib/` with a
+100%-covering test; `app/` stays thin; don't widen the lint caps or skip hooks;
+credentials `signIn` runs from a server action, never a route handler; secrets
+are env-only.
 
 ## Configure
 

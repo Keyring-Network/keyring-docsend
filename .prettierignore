@@ -1,0 +1,13 @@
+# pnpm owns the lockfile's format.
+pnpm-lock.yaml
+
+# Generated / vendored output.
+.next
+out
+coverage
+
+# Your document — not ours to reformat.
+public/content
+
+# Symlink (Prettier errors on explicitly-named symlinks).
+CLAUDE.md
