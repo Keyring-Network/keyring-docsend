@@ -47,6 +47,13 @@ If a hook blocks you, it found something real — fix it rather than bypassing.
 - New env var → document it in `.env.example` and the README table.
 - New gated/public route → update `lib/routes.ts` (and its test).
 
+## Dependencies
+
+`next-auth` is pinned to an exact `5.0.0-beta.*` version on purpose — v5 has
+no stable release yet, and betas can break between patches. Don't widen it to
+a caret range or bump it casually; bump deliberately, re-run `pnpm verify`,
+and smoke-test a real sign-in before committing.
+
 ## Commits
 
 Atomic and focused — one logical change per commit, with a message that

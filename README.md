@@ -76,9 +76,11 @@ access state does.
 | ---------------- | ------------------------------------ | --------------------------------------------------- |
 | `json` (default) | Docker, a VPS, anything long-running | `DATA_DIR` (default `./.data`)                      |
 | `edge-config`    | Serverless on Vercel                 | `EDGE_CONFIG`, `VERCEL_API_TOKEN`, `VERCEL_TEAM_ID` |
+| `redis`          | Multi-instance serverless, any host  | `REDIS_REST_URL`, `REDIS_REST_TOKEN`, `REDIS_KEY?`  |
 
 > The JSON driver writes to a local file, which won't persist on ephemeral
-> serverless filesystems. Use `edge-config` (or a long-running host) there.
+> serverless filesystems. For serverless use `edge-config` (Vercel) or `redis`
+> (Upstash-compatible REST, works anywhere and across instances).
 
 ### Your document
 
