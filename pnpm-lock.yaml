@@ -16,10 +16,10 @@ importers:
         version: 16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       next-auth:
         specifier: 5.0.0-beta.31
-        version: 5.0.0-beta.31(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nodemailer@7.0.13)(react@19.2.6)
+        version: 5.0.0-beta.31(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nodemailer@9.0.1)(react@19.2.6)
       nodemailer:
-        specifier: ^7.0.7
-        version: 7.0.13
+        specifier: ^9.0.1
+        version: 9.0.1
       react:
         specifier: 19.2.6
         version: 19.2.6
@@ -1650,8 +1650,8 @@ packages:
     resolution: {integrity: sha512-tGnJW6OKRii9u/b2WiUViTJS+h7Apxx17qsMUjsUeNDiMMX5ZFf8F8Fcz7PAQ6omvOxHZtvDTmOYKJQwmfpjeg==}
     engines: {node: '>=20'}
 
-  nodemailer@7.0.13:
-    resolution: {integrity: sha512-PNDFSJdP+KFgdsG3ZzMXCgquO7I6McjY2vlqILjtJd0hy8wEvtugS9xKRF2NWlPNGxvLCXlTNIae4serI7dinw==}
+  nodemailer@9.0.1:
+    resolution: {integrity: sha512-Gwv8SQewT616ZM/URn0H54b8PWo/Wum7md3EW2aWy1lO27+WZCX+Xyak3J+NlmHUjDh5ME+uesJUDRbR3Ye8Bw==}
     engines: {node: '>=6.0.0'}
 
   npm-run-path@4.0.1:
@@ -2182,7 +2182,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@auth/core@0.41.2(nodemailer@7.0.13)':
+  '@auth/core@0.41.2(nodemailer@9.0.1)':
     dependencies:
       '@panva/hkdf': 1.2.1
       jose: 6.2.3
@@ -2190,7 +2190,7 @@ snapshots:
       preact: 10.24.3
       preact-render-to-string: 6.5.11(preact@10.24.3)
     optionalDependencies:
-      nodemailer: 7.0.13
+      nodemailer: 9.0.1
 
   '@babel/helper-string-parser@7.29.7': {}
 
@@ -3564,13 +3564,13 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-auth@5.0.0-beta.31(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nodemailer@7.0.13)(react@19.2.6):
+  next-auth@5.0.0-beta.31(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nodemailer@9.0.1)(react@19.2.6):
     dependencies:
-      '@auth/core': 0.41.2(nodemailer@7.0.13)
+      '@auth/core': 0.41.2(nodemailer@9.0.1)
       next: 16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
     optionalDependencies:
-      nodemailer: 7.0.13
+      nodemailer: 9.0.1
 
   next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
@@ -3601,7 +3601,7 @@ snapshots:
       '@types/sarif': 2.1.7
       fs-extra: 11.3.5
 
-  nodemailer@7.0.13: {}
+  nodemailer@9.0.1: {}
 
   npm-run-path@4.0.1:
     dependencies:
